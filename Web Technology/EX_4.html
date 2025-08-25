@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel</title>
+    <style>
+    /* Travel Booking Form CSS */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #89abdd;
+    margin: 0;
+    padding: 20px;
+}
+
+h1,h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+form {
+    background-color: rgb(212, 223, 238);
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(24, 33, 122, 0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: vertical;
+    height: 80px;
+}
+
+input[type="range"] {
+    width: 100%;
+    margin: 10px 0;
+}
+
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+.radio-group {
+    margin-bottom: 15px;
+}
+
+.radio-option {
+    margin-bottom: 5px;
+}
+
+.budget-display {
+    text-align: center;
+    font-weight: bold;
+    color: #2c5aa0;
+    margin-bottom: 15px;
+}
+
+button {
+    background-color: #2c5aa0;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #1e3f73;
+}
+
+select {
+    cursor: pointer;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #2c5aa0;
+    box-shadow: 0 0 5px rgba(44,90,160,0.3);
+}
+
+
+
+    </style>
+
+    <script lang="javascript" type="text/javascript">
+        function validateBookingForm(){
+            let name = document.getElementById('name').value.trim();
+            let email = document.getElementById('email').value.trim();
+            let phone = document.getElementById('phone').value.trim();
+            let password = document.getElementById('password').value;
+            let travelers = document.getElementById('travelers').value;
+            let date = document.getElementById('date').value;
+            let dob = document.getElementById('dob').value;
+            let address = document.getElementById('address').value;
+        
+        
+
+         if (name.length < 3) {
+            alert('Name must atleast be 3 characters.');
+            return false;
+          }
+
+            if(!email.includes("@")){
+            alert("Please enter a valid email.");
+            return false;
+        }
+
+            if(isNaN(phone)){
+            alert("Phone number must be in digits.");
+            return false;
+        }
+
+            if(password.length < 8){
+            alert("Password must be atleast 8 characters");
+            return false;
+        }
+
+            if(date === ""){
+            alert("Please select a travel date.");
+            return false;
+        }
+
+             if(dob === ""){
+            alert("Please select a Date of BIrth.");
+            return false;
+        }
+
+             if(address.length < 10){
+            alert('Address must be 10 characters long.');
+            return false;
+        }
+
+          alert("Booking successfully completed");
+          return true;
+        }
+    </script>
+</head>
+<body>
+    <h1>Welcome to Wander and Wonder</h1>
+    <h2>Travel Booking Form</h2>
+    <form onsubmit="return validateBookingForm()">
+        <label>Name : </label>
+        <input type="text" id="name" name="name">
+        <br>
+        <br>
+        <label>Email : </label>
+        <input type="email" id="email" name="email">
+        <br>
+        <br>
+        <label>Phone : </label>
+        <input type="tel" id="phone" name="number">
+        <br>
+        <br>
+        <label>Password : </label>
+        <input type="password" id="password" name="password">
+        <br>
+        <br>
+        <label>Date of Birth : </label>
+        <input type="date" id="dob" name="dob">
+        <br>
+        <br>
+        <label>Address : </label>
+        <textarea rows = "5" cols="10" id="address"></textarea>
+        <br>
+        <br>
+        <label>Travel Date : </label>
+        <input type="date" id="date" name="date">
+        <br>
+        <br>
+        <label>Count of Travelers :</label>
+        <input type="number" id="travelers" name="number">
+        <br>
+        <br>
+        <label>Destination :</label>
+        <select id="Destination" required>
+            <option></option>
+            <option>Paris</option>
+            <option>New York</option>
+            <option>Shimla</option>
+            <option>Bali</option>
+            <option>Switzerland</option>
+        </select>
+        <br>
+        <br>
+        <label>Budget Preference : </label>
+        <input type="range" id="budget" min="500" max="10000" step="500" oninput="budgetOutput.value = budget.value">
+        <output id = "budgetOutput">500</output>
+        <br>
+        <br>
+        <label>Hotel Reservation Needed ?</label>
+        <br>
+        <input type="radio" id="yes" name="hotel" required>
+        <label for="yes">Yes</label>
+        <br>
+        <input type="radio" id="no" name="hotel">
+        <label for="no">No</label>
+        <br>
+        <br>
+        <label>Transport Reservation Needed ?</label>
+        <br>
+        <input type="radio" id="yes" name="hotel" required>
+        <label for="yes">Yes</label>
+        <br>
+        <input type="radio" id="no" name="hotel">
+        <label for="no">No</label>
+        <br>
+        <br>
+        <label>Mode of Transport :</label>
+        <select id="Transport" required>
+            <option></option>
+            <option>Bus</option>
+            <option>Flight</option>
+            <option>Taxi</option>
+            <option>Boat rides</option>
+            <option>Train</option>
+        </select>
+        <br>
+        <br>
+        <label>Preferred method of contact</label>
+        <br>
+        <input type="radio" id="phone" name="contact" required>
+        <label for="phone">Phone</label>
+        <br>
+        <input type="radio" id="Email" name="contact">
+        <label for="Email">Email</label>
+        <br>
+        <input type="radio" id="Text" name="contact">
+        <label for="Text">Text</label>
+        <br>
+        <br>
+        <button type="submit">Submit</button>
+
+        
+    </form>
+</body>
+</html>
